@@ -78,27 +78,6 @@ stored in Docker volumes and persist between runs.
 
 ## Seed data
 
-The original SQL contains 1,920 inpatient rows representing 2018. During
-first-time database initialization, `docker/postgres/02-extend-inpatient-data.sql`:
-
-- adds `public.inpatient_data.discharge_year` and marks the original rows 2018;
-- creates deterministic projected rows for every year from 2019 through 2025;
-- applies modest annual growth plus a deterministic variation to each DRG;
-- creates indexes for unique keys and year/hospital queries.
-
-The resulting table contains 15,360 rows, 1,920 for each year from 2018 to
-2025. Rows after 2018 are synthetic projections for exercises and testing;
-they are not official Medicare or CMS data.
-
-Example query:
-
-```sql
-SELECT discharge_year, amount_code, sum(amount) AS total
-FROM public.inpatient_data
-GROUP BY discharge_year, amount_code
-ORDER BY discharge_year, amount_code;
-```
-
 Initialization scripts run only when the PostgreSQL volume is empty. To delete
 all persisted database and pgAdmin data and rebuild from the seed files:
 

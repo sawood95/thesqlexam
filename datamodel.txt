@@ -1,0 +1,38 @@
+Table "public.type_code"
+ Column | Type | Collation | Nullable | Default 
+------------------+-----------------------+-----------+----------+---------
+ type_code | character varying(5) | | | 
+ type_description | character varying(50) | | | 
+
+ Table "public.inpatient_data"
+ Column | Type | Collation | Nullable | Default 
+--------------+----------------------+-----------+----------+---------
+ inpatient_sk | integer | | | 
+ drg_code | integer | | | 
+ hospital_id | numeric | | | 
+ amount_code | character varying(5) | | | 
+ amount | numeric | | | 
+ discharge_year | integer | | not null | 
+
+ Table "public.hospital_report"
+ Column | Type | Collation | Nullable | Default 
+-------------------+---------+-----------+----------+---------
+ hospital_id | numeric | | | 
+ hospital_name | text | | | 
+ city | text | | | 
+ state | text | | | 
+ discharges | numeric | | | 
+ charges | numeric | | | 
+ total_payments | numeric | | | 
+ medicare_payments | numeric | | | 
+
+ Table "public.hospital"
+ Column | Type | Collation | Nullable | Default 
+----------------------+------------------------+-----------+----------+---------
+ hospital_id | numeric | | | 
+ hospital_name | character varying(255) | | | 
+ hospital_address | character varying(255) | | | 
+ hospital_city | character varying(255) | | | 
+ hospital_state | character varying(255) | | | 
+ hospital_postal_code | character varying(255) | | | 
+ region_id | integer | | |

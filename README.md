@@ -87,3 +87,8 @@ docker compose up -d
 ```
 
 This reset permanently deletes changes made in the local database.
+
+## Exam Questions
+1. We have a static report with data stored in the hospital_report table, but we don't have the query that generated it. Recreate a new table that exactly matches the report using data from the other tables.
+2. Which 5 DRG codes had the highest payment ratio per discharge in 2025? The amount should be rounded to 2 decimal places.
+
